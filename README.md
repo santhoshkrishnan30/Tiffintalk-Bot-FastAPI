@@ -12,6 +12,7 @@ Install these modules
 
 
 pip install mysql-connector
+
 pip install "fastapi[all]"
 
 OR just run pip install -r backend/requirements.txt to install both in one shot
