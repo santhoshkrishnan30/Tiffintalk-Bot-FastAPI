@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>TIFFIN TALK BEAT</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #ff5733; /* Orange text color */
+            text-align: center;
+        }
+
+        header {
+            background-color: #000; /* Black background */
+            text-align: center;
+            padding: 20px;
+            color: #ff5733; /* Orange text color */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        header:hover {
+            background-color: #ff5733; /* Orange background on hover */
+            color: #000; /* Black text color on hover */
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ff5733; /* Orange link color */
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #000; /* Black link color on hover */
+        }
+
+        section {
+            margin: 20px;
+            background-color: #000; /* Black section background */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(255, 87, 51, 0.1); /* Orange shadow */
+        }
+
+        #home img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px; /* Add border-radius for a rounded corner effect if desired */
+        }
+
+        section h2 {
+            color: #ff5733; /* Orange heading color */
+        }
+
+        footer {
+            background-color: #ff5733;
+            text-align: center;
+            padding: 10px;
+            color: #000; /* Black text color in footer */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .chat-bot-content {
+            display: none; /* Hide the chatbot content by default */
+            color: #ff5733; /* Orange text color */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000; /* Black background color */
+            padding: 20px;
+            overflow-y: auto;
+            max-height: calc(100% - 20px);
+            z-index: 1000;
+            border-radius: 8px; /* Add border-radius for a rounded corner effect if desired */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: #ff5733; /* Orange text color */
+            font-size: 20px;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 50%;
+            padding: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .close-btn:hover {
+            background-color: #ff5733; /* Orange background on hover */
+            color: #000; /* Black text color on hover */
+        }
+
+        .toggle-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            padding: 10px;
+            background-color: #ff5733; /* Orange background color */
+            color: #000; /* Black text color */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1001; /* Higher z-index to be above the chatbot content */
+            outline: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle-btn:hover {
+            background-color: #000; /* Black background on hover */
+            color: #ff5733; /* Orange text color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#home">HOME</a> |
+                <a href="#menu">MENU</a> |
+                <a href="#location">LOCATION</a> |
+                <a href="#aboutus">ABOUT US</a> |
+                <a href="#contactus">CONTACT US</a>
+            </nav>
+        </header>
+
+        <section id="home">
+            <img src="banner.jpg" alt="Banner Image">
+            <!-- Add any additional content or images here -->
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="grid-container">
+                <img src="menu1.jpg" alt="Menu item 1">
+                <img src="menu2.jpg" alt="Menu item 2">
+                <img src="menu3.jpg" alt="Menu item 3">
+            </div>
+        </section>
+
+        <section id="location">
+            <h2>Location</h2>
+            <p>Kalapatti Road, Sitra, Coimbatore-641014, Tamil Nadu</p>
+            <!-- Add map widget here -->
+        </section>
+
+        <section id="aboutus">
+            <h2>About Us</h2>
+            <p>Embark on a delightful journey through the heartwarming flavors of Tamil Nadu Tiffin at Tiffin Talk Beat, where every dish narrates a tale of the region's rich culinary heritage. With branches in Coimbatore, Madurai, Chennai, Trichy, Bangalore, Thirunelveli, and Pondicherry, our commitment to authenticity is a testament to our love for tradition and an unwavering quest for perfection.</p>
+        </section>
+
+        <section id="contactus">
+            <h2>Contact Us</h2>
+            <p>Phone: 9047476607</p>
+            <p>Email: tiffintalk3@gmail.com</p>
+        </section>
+
+        <footer>
+            <!-- Footer content -->
+        </footer>
+
+        <div id="chat-bot" class="chat-bot-content">
+            <!-- Chatbot content goes here -->
+            <button class="close-btn" onclick="toggleChatbot()">X</button>
+            <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/fb590d6c-78de-48d6-9cb4-8c95bd0e35bd"></iframe>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleChatbot()">Chat with us</button>
+    </div>
+
+    <script>
+        var chatbotContent = document.getElementById('chat-bot');
+        var toggleBtn = document.querySelector('.toggle-btn');
+
+        function toggleChatbot() {
+            chatbotContent.style.display = chatbotContent.style.display === 'none' || chatbotContent.style.display === '' ? 'block' : 'none';
+            toggleBtn.style.display = chatbotContent.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
