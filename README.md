@@ -34,4 +34,4 @@ ngrok for https tunneling
 3. Open windows command prompt, go to that folder and run this command: ngrok http 80000
 
 NOTE: ngrok can timeout. you need to restart the session if you see session expired message.
-im adding these in readme .txt file in github alter the above refernce contents
+
