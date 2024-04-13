@@ -15,12 +15,18 @@ frontend: website code
 Install these modules
 ======================
 
+```python
 
 pip install mysql-connector
 
 pip install "fastapi[all]"
+```
 
-OR just run pip install -r backend/requirements.txt to install both in one shot
+OR just run 
+```python 
+pip install -r backend/requirements.txt 
+```
+ to install both in one shot.
 
 To start fastapi backend server
 ================================
